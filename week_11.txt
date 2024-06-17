@@ -1,0 +1,85 @@
+resource url?
+QUESTION ----------------
+Problem Description:
+------------------ANSWER
+while True:
+    try:
+        n=int(input())
+        if n>0 and n<101:
+            print("Valid input.")
+            break
+        else:
+            print("Error: Number out of allowed range")
+            break
+    except:
+        print("Error: invalid literal for int()")
+        break
+------------------------------
+QUESTION ----------------
+Develop a Python program that safely performs division between two numbers provided by the user. Handle exceptions like division by zero and non-numeric inputs.
+------------------ANSWER
+try:
+    a=float(input())
+    b=float(input())
+    res=a/b
+    print(res)
+except ValueError:
+    print("Error: Non-numeric input provided.")
+except ZeroDivisionError:
+    print("Error: Cannot divide or modulo by zero.")
+------------------------------
+QUESTION ----------------
+Problem Description:
+------------------ANSWER
+while True:
+    try:
+        age=int(input())
+        if age>0:
+            print("You are %d years old."%age)
+            break
+        else:
+            print("Error: Please enter a valid age.")
+            break
+    except:
+        print("Error: Please enter a valid age.")
+        break
+------------------------------
+QUESTION ----------------
+Problem Description:
+------------------ANSWER
+import math as m
+
+try:
+    n = float(input())
+    if n < 0:
+        print("Error: Cannot calculate the square root of a negative number.")
+    else:
+        sqrt = m.sqrt(n)
+        print(f"The square root of {n} is {sqrt:.2f}")
+except ValueError:
+    print("Error: could not convert string to float")
+------------------------------
+QUESTION ----------------
+Write a Python program that performs division and modulo operations on two numbers provided by the user. Handle division by zero and non-numeric inputs.
+------------------ANSWER
+while True:
+    try:
+        a=int(input())
+        b=int(input())
+        if b==0:
+            print("Error: Cannot divide or modulo by zero.")
+            break
+        else:
+            m=a%b
+            if m==0:
+                print("Division result: %.1f"%(a/b))
+                print("Modulo result: %d"%m)
+                break
+            else:
+                print("Division result: %.16f"%(a/b))
+                print("Modulo result: %d"%m)
+                break
+    except:
+        print("Error: Non-numeric input provided.")
+        break
+------------------------------

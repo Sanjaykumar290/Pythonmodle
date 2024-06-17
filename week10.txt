@@ -1,0 +1,115 @@
+resource url?
+QUESTION ----------------
+To find the frequency of numbers in a list and display in sorted order.Constraints: 1<=n, arr[i]<=100 Input: 1 68 79 4 90 68 1 4 5 output: 1 2 4 2 5 1 68 2 79 1 90 1
+------------------ANSWER
+l=input().split()
+d={}
+for i in range(0,len(l)):
+    for j in range(0,len(l)-i-1):
+        if int(l[j])>int(l[j+1]):
+            l[j],l[j+1]=l[j+1],l[j]
+for i in l:
+    if i in d:
+        d[i]+=1
+    else:
+        d[i]=1
+for i in d:
+    print(i,d[i])
+------------------------------
+QUESTION ----------------
+Given an listof integers, sort the array in ascending order using the Bubble Sort algorithm above. Once sorted, print the following three lines:
+------------------ANSWER
+n=int(input())
+
+c=0
+l=input().split()
+def sort(l,c):
+    for i in range(0,n):
+        for j in range(0,n-i-1):
+            if int(l[j])>int(l[j+1]):
+                l[j],l[j+1]=l[j+1],l[j]
+                c+=1
+    return c
+x=sort(l,c)
+print("List is sorted in",x,"swaps.")
+print("First Element:",int(l[0]))
+print("Last Element:",int(l[-1]))
+------------------------------
+QUESTION ----------------
+Write a Python program for binary search.
+------------------ANSWER
+l=input().split(',')
+s=int(input())
+l.sort()
+lb=0
+ub=len(l)-1
+flag=0
+while lb<=ub:
+    mid=(lb+ub)//2
+    if int(l[mid])==s:
+        flag=1
+        break
+    elif int(l[mid])<s:
+        lb+=1
+    else:
+        ub-=1
+if flag==1:
+    print("True")
+else:
+    print("False")
+------------------------------
+QUESTION ----------------
+Write a Python program to sort a list of elements using the merge sort algorithm.
+------------------ANSWER
+def mergeSort(array):
+    if len(array) > 1:
+        r = len(array)//2
+        L = array[:r]
+        M = array[r:]
+        mergeSort(L)
+        mergeSort(M)
+
+        i = j = k = 0
+        while i < len(L) and j < len(M):
+            if L[i] < M[j]:
+                array[k] = L[i]
+                i += 1
+            else:
+                array[k] = M[j]
+                j += 1
+            k += 1
+        while i < len(L):
+            array[k] = L[i]
+            i += 1
+            k += 1
+
+        while j < len(M):
+            array[k] = M[j]
+            j += 1
+            k += 1
+n=int(input())
+l=input().split()
+array=[]
+for i in l:
+    array.append(int(i))
+mergeSort(array)
+for i in array:
+    print(i,end=" ")
+------------------------------
+QUESTION ----------------
+An list contains N numbers and you want to determine whether two of the numbers sum to a given number K. For example, if the input is 8, 4, 1, 6 and K is 10, the answer is yes (4 and 6). A number may be used twice.Input FormatThe first line contains a single integer n , the length of listThe second line contains n space-separated integers, list[i].The third line contains integer k.Output FormatPrint Yes or No.Sample Input70 1 2 4 6 5 3 1 Sample OutputYes
+------------------ANSWER
+n=int(input())
+l=input().split()
+k=int(input())
+d=0
+for i in range(0,n):
+    for j in range(i+1,n):
+        if int(l[i])+int(l[j])==k:
+            d=1
+            break
+if d==0:
+    print("No")
+else:
+    print("Yes")
+------------------------------

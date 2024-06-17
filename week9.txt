@@ -1,0 +1,78 @@
+resource url?
+QUESTION ----------------
+A number is considered to be ugly if its only prime factors are 2, 3 or 5.
+------------------ANSWER
+def checkUgly(n):
+    if n <= 0: 
+        return "not ugly"
+    while n % 2 == 0:
+        n //= 2
+    while n % 3 == 0:
+        n //= 3
+    while n % 5 == 0:
+        n //= 5
+    if n == 1:
+        return "ugly"
+    else:
+        return "not ugly"
+------------------------------
+QUESTION ----------------
+An e-commerce company plans to give their customers a special discount for Christmas.
+------------------ANSWER
+def christmasDiscount(n):
+    dis=0
+    for i in range(len(str(n))):
+        t=n%10
+        flag=0
+        for i in range(2,(t//2)+1):
+            if t%i==0:
+                flag+=1
+                break
+        if flag==0:
+            dis+=t
+        n//=10
+    return dis
+------------------------------
+QUESTION ----------------
+Given a number with maximum of 100 digits as input, find the difference between the sum
+------------------ANSWER
+def differenceSum(n):
+    number_str = str(n)
+    sum_even = 0
+    sum_odd = 0
+    for i, digit in enumerate (number_str):
+        if (i + 1) % 2 == 0:
+            sum_even += int(digit)
+        else:
+            sum_odd += int(digit)
+    return abs (sum_even -sum_odd)
+------------------------------
+QUESTION ----------------
+complete function to implement coin change making problem i.e. finding the minimum
+------------------ANSWER
+def coinChange(n):
+    count=0 
+    while n>0:
+        if(n>=4): 
+            n-=4
+        elif(n==3):
+            n-=3
+        elif(n==2):
+            n-=2
+        elif(n==1):
+            n-=1
+        count+=1
+    return count
+------------------------------
+QUESTION ----------------
+An automorphic number is a number whose square ends with the number itself.
+------------------ANSWER
+def automorphic(n):
+    if n <= 0:
+        return "Invalid input"
+    square = n * n
+    if str(square).endswith(str(n)):
+        return "Automorphic"
+    else:
+        return "Not Automorphic"
+------------------------------
